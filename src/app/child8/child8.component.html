@@ -1,0 +1,34 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-6" *ngIf="menuData">
+          <a routerLink="/child3" class="btn btn-sm btn-warning">back</a>
+            <img src="{{menuData[0].EventImg}}" class="img-fluid">
+            <div class="text-center">
+            <h1 >{{menuData[0].EventName}}</h1>
+            <p>{{menuData[0].Eventdetails  }}</p>
+            <h4>{{menuData[0].Eventprice |currency  }}</h4>
+        </div>
+        </div>
+
+
+
+
+        <div class="col-lg-6">
+          <div *ngIf="notificationVisible" class="alert alert-success alert-dismissible fade show mt-3 " role="alert">
+            <strong class="text-center">Your order succesfully <i class="bi bi-check2"></i> </strong>
+            <button type="button" class="close float-end" (click)="notificationVisible = false" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <h1 class="mt-5">ENTER YOUR DETAILS</h1>
+          <form (ngSubmit)="placeOrder()">
+            <input type="text" class="form-control" placeholder="Enter your full name" [(ngModel)]="fullName" name="fullName" required><br>
+            <input type="text" class="form-control" placeholder="Enter your email" [(ngModel)]="email" name="email" required><br>
+            <textarea class="form-control" placeholder="Enter your address" [(ngModel)]="address" name="address" required></textarea><br>
+            <button type="submit" class="btn btn-md btn-warning">Place Orders</button>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
